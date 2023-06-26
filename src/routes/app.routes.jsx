@@ -47,6 +47,7 @@ const AppRoutes = () => {
             />
             <Route path="/pets" element={user ? <MeusPets/> : <Login/>}/>
             <Route path="*" element={<NotFound/>} />
+            <Route path="/404" element={<NotFound/>} />
         </Routes>
     );
 };
