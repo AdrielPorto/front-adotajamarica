@@ -24,12 +24,14 @@ const Pet = () => {
       try {
         const response = await api.get(`/pets/${id}`);
         const interesteds = await api.get(`/interestedUsers/checkUser/${id}`);
-        if (interesteds.data) {
-          setIsInterested(true);
+        if(user){
+          const interesteds = await api.get(`/interestedUsers/checkUser/${id}`);
+          if (interesteds.data) {
+            setIsInterested(true);
+          }
         }
         setPetsData(response.data);
         getPetFavorites();
-        user();
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
