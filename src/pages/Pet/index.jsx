@@ -23,7 +23,6 @@ const Pet = () => {
     const fetchData = async () => {
       try {
         const response = await api.get(`/pets/${id}`);
-        const interesteds = await api.get(`/interestedUsers/checkUser/${id}`);
         if(user){
           const interesteds = await api.get(`/interestedUsers/checkUser/${id}`);
           if (interesteds.data) {
