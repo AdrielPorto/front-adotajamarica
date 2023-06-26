@@ -1,5 +1,5 @@
-import {Routes, Route} from "react-router-dom";
-import {useAuth} from "../hooks/auth";
+import { Routes, Route } from "react-router-dom";
+import { useAuth } from "../hooks/auth";
 
 import Home from "../pages/Home";
 import EncontrarPets from "../pages/EncontrarPets";
@@ -22,34 +22,34 @@ import Interessados from "../pages/Interessados";
 import MeusPets from "../pages/MeusPets";
 
 const AppRoutes = () => {
-    const {user} = useAuth();
+  const { user } = useAuth();
 
-    return (
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/encontrar-pets" element={<EncontrarPets/>}/>
-            <Route path="/pet/:id" element={<Pet/>}/>
-            <Route path="/sobre" element={<Sobre/>}/>
-            <Route path="/contato" element={<Contato/>}/>
-            <Route path="/login" element={user ? <Home/> : <Login/>}/>
-            <Route path="/registro" element={user ? <Home/> : <Registrar/>}/>
-            <Route path="/user/:id" element={<User/>}/>
-            <Route path="/esquecido" element={<Esquecido/>}/>
-            <Route path="/meus-dados" element={user ? <Me/> : <Login/>}/>
-            <Route path="/add-pet" element={user ? <AddPet/> : <Login/>}/>
-            <Route path="/updatePet/:id" element={user ? <UpdatePet/> : <Login/>}/>
-            <Route path="/favoritos" element={user ? <Favoritos/> : <Login/>}/>
-            <Route path="/reset" element={<Reset/>}/>
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/encontrar-pets" element={<EncontrarPets />} />
+      <Route path="/pet/:id" element={<Pet />} />
+      <Route path="/sobre" element={<Sobre />} />
+      <Route path="/contato" element={<Contato />} />
+      <Route path="/login" element={user ? <Home /> : <Login />} />
+      <Route path="/registro" element={user ? <Home /> : <Registrar />} />
+      <Route path="/user/:id" element={<User />} />
+      <Route path="/esquecido" element={<Esquecido />} />
+      <Route path="*" element={<NotFound />} />
 
-            <Route
-                path="/interessados"
-                element={user ? <Interessados/> : <Login/>}
-            />
-            <Route path="/pets" element={user ? <MeusPets/> : <Login/>}/>
-            <Route path="*" element={<NotFound/>} />
-            <Route path="/404" element={<NotFound/>} />
-        </Routes>
-    );
+      <Route path="/meus-dados" element={user ? <Me /> : <Login />} />
+      <Route path="/add-pet" element={user ? <AddPet /> : <Login />} />
+      <Route path="/updatePet/:id" element={user ? <UpdatePet /> : <Login />} />
+      <Route path="/favoritos" element={user ? <Favoritos /> : <Login />} />
+      <Route path="/reset" element={<Reset />} />
+
+      <Route
+        path="/interessados"
+        element={user ? <Interessados /> : <Login />}
+      />
+      <Route path="/pets" element={user ? <MeusPets /> : <Login />} />
+    </Routes>
+  );
 };
 
 export default AppRoutes;
