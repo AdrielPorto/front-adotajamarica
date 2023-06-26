@@ -14,7 +14,7 @@ import Loading from "../../components/Loading";
 
 const Pet = () => {
   const { id } = useParams();
-  const { petFavorites, getPetFavorites } = useAuth();
+  const { petFavorites, getPetFavorites, user } = useAuth();
   const [petsData, setPetsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -29,6 +29,7 @@ const Pet = () => {
         }
         setPetsData(response.data);
         getPetFavorites();
+        user();
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
