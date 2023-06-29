@@ -12,7 +12,15 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import ModalConfirm from "../../components/ModalConfirm";
 
-const CardInteressados = ({ interessado, handleDelete, handleConfirm }) => {
+const CardInteressados = ({
+  interessado,
+  handleDelete,
+  handleConfirm,
+  donopet,
+  isConfirmed,
+  title,
+  isTextInteressado,
+}) => {
   return (
     <ContainerCard>
       <div className="card-header">
@@ -35,7 +43,7 @@ const CardInteressados = ({ interessado, handleDelete, handleConfirm }) => {
           <Link to={`/user/${interessado?.usuario_id}`}>
             {interessado?.usuario_nome}{" "}
           </Link>
-          <span>Quer adotar</span>
+          {donopet ? <span>Está doando o pet</span> : <span>Quer adotar</span>}
         </div>
       </div>
       <div className="card-media">
@@ -62,7 +70,7 @@ const CardInteressados = ({ interessado, handleDelete, handleConfirm }) => {
               <button
                 className="card-action_icons-not"
                 data-tooltip-id="no-tooltip"
-                data-tooltip-content="Recusar adoção"
+                data-tooltip-content={title}
               >
                 <RiCloseCircleFill size={30} />
               </button>
@@ -70,32 +78,43 @@ const CardInteressados = ({ interessado, handleDelete, handleConfirm }) => {
             title="Rejeitar adoção"
           >
             <p>
-              Você tem certeza que deseja recusar a adoção do pet{" "}
-              <strong>{interessado?.pet_nome}</strong> para o usuário(a){" "}
-              <strong>{interessado?.usuario_nome}</strong>?
+              {isTextInteressado ? (
+                <>
+                  Você tem certeza que deseja abandonar o pet{" "}
+                  <strong>{interessado?.pet_nome}</strong>?
+                </>
+              ) : (
+                <>
+                  Você tem certeza que deseja recusar a adoção do pet{" "}
+                  <strong>{interessado?.pet_nome}</strong> para o usuário(a){" "}
+                  <strong>{interessado?.usuario_nome}</strong>?
+                </>
+              )}
             </p>
           </ModalConfirm>
-          <ModalConfirm
-            isDonate={true}
-            handleConfirm={handleConfirm}
-            usuarios_interessados_id={interessado?.usuarios_interessados_id}
-            openerElement={
-              <button
-                className="card-action_icons-okay"
-                data-tooltip-id="yes-tooltip"
-                data-tooltip-content="Aceitar adoção"
-              >
-                <BsFillCheckCircleFill size={25} />
-              </button>
-            }
-            title="Confirmar adoção"
-          >
-            <p>
-              Você tem certeza que deseja doar o pet{" "}
-              <strong>{interessado?.pet_nome}</strong> para o usuário(a){" "}
-              <strong>{interessado?.usuario_nome}</strong>?
-            </p>
-          </ModalConfirm>
+          {isConfirmed ? (
+            <ModalConfirm
+              isDonate={true}
+              handleConfirm={handleConfirm}
+              usuarios_interessados_id={interessado?.usuarios_interessados_id}
+              openerElement={
+                <button
+                  className="card-action_icons-okay"
+                  data-tooltip-id="yes-tooltip"
+                  data-tooltip-content="Aceitar adoção"
+                >
+                  <BsFillCheckCircleFill size={25} />
+                </button>
+              }
+              title="Confirmar adoção"
+            >
+              <p>
+                Você tem certeza que deseja doar o pet{" "}
+                <strong>{interessado?.pet_nome}</strong> para o usuário(a){" "}
+                <strong>{interessado?.usuario_nome}</strong>?
+              </p>
+            </ModalConfirm>
+          ) : null}
         </div>
         <div className="card-action_contacts">
           <a

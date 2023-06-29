@@ -1,7 +1,11 @@
 import styled from "styled-components";
-
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export const Carousel = styled.div`
   overflow: hidden;
+
+  ${breakAt(BreakpointSize.sm)} {
+    display: none;
+  }
 
   .inner {
     white-space: nowrap;

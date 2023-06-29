@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export default createGlobalStyle`
     * {
         margin: 0;
@@ -255,4 +255,6 @@ export default createGlobalStyle`
           color: ${({ theme }) => theme.COLORS.RED} !important;
         }
       }
+
+      
 `;

@@ -3,9 +3,9 @@ import { ContainerSlide } from "./styles";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import Carousel from "nuka-carousel";
 
-const Slider = ({ children, imageUrl, segPlay }) => {
+const Slider = ({ children, imageUrl, segPlay, classN }) => {
   return (
-    <ContainerSlide imageUrl={imageUrl}>
+    <ContainerSlide imageUrl={imageUrl} className={classN}>
       <Carousel
         autoplay={segPlay ? true : false}
         autoplayInterval={segPlay}

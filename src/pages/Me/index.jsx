@@ -271,7 +271,6 @@ const Me = () => {
               <h2>Editar Perfil</h2>
               <form onSubmit={handleUpdate} className="form-editar-perfil">
                 <div className="group-avatar">
-                  {console.log(avatar)}
                   {avatar && !avatar.includes("/null") ? (
                     <img src={avatar} alt="Avatar" />
                   ) : (

@@ -1,17 +1,20 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.COLORS.BLUE};
   color: ${({ theme }) => theme.COLORS.WHITE};
   height: 170px;
   display: flex;
-
   justify-content: space-between;
   align-items: center;
-
   grid-area: footer;
-
   padding: 0 5%;
+
+  ${breakAt(BreakpointSize.sm)} {
+    height: auto;
+    padding-bottom: 16px;
+  }
 
   .footer-container {
     width: min(100%, 1140px);
@@ -20,10 +23,18 @@ export const FooterWrapper = styled.footer`
     justify-content: space-between;
     align-items: center;
 
+    ${breakAt(BreakpointSize.md)} {
+      flex-direction: column;
+    }
+
     .logos {
       display: flex;
       align-items: center;
       gap: 50px;
+      ${breakAt(BreakpointSize.sm)} {
+        flex-direction: column;
+        gap: 0;
+      }
       .social_media {
         display: flex;
         align-items: center;
@@ -37,8 +48,20 @@ export const FooterWrapper = styled.footer`
 
       font-size: 1.5rem;
       text-align: right;
+      ${breakAt(BreakpointSize.sm)} {
+        text-align: center;
+        span {
+          width: 100%;
+          text-align: center;
+          font-size: 1.3rem;
+        }
+      }
       P {
         color: ${({ theme }) => theme.COLORS.ORANGE};
+        ${breakAt(BreakpointSize.sm)} {
+          text-align: center;
+          font-size: 1.3rem;
+        }
         a {
           color: ${({ theme }) => theme.COLORS.ORANGE};
           font-weight: 700;

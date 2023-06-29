@@ -17,7 +17,7 @@ import {
 import ModalConfirm from "../ModalConfirm";
 import Loading from "../Loading";
 
-const CardMyPets = ({ data, deletePets }) => {
+const CardMyPets = ({ data, handleDeletePet, user_id }) => {
   const [showPopover, setShowPopover] = useState(false);
   const popoverRef = useRef(null);
 
@@ -70,7 +70,7 @@ const CardMyPets = ({ data, deletePets }) => {
                   isDeletePet={true}
                   id={data.id}
                   url={data.fotos}
-                  deletePets={deletePets}
+                  deletePets={handleDeletePet}
                 >
                   <p>
                     Você tem certeza que deseja excluir o pet{" "}
@@ -92,12 +92,17 @@ const CardMyPets = ({ data, deletePets }) => {
         </Link>
       </CardHeader>
       <CardBody>
-        {/* <div className="flag disponivel">Disponivel para adoção</div> */}
         {/* <div className="flag adotado">Adotado</div> */}
 
-        {data.disponibilidade ? (
+        {data.disponibilidade && (
           <div className="flag disponivel">Disponivel </div>
-        ) : (
+        )}
+
+        {data.usuario_id !== user_id && !data.disponibilidade && (
+          <div className="flag adotado">Adotado</div>
+        )}
+
+        {data.usuario_id === user_id && !data.disponibilidade && (
           <div className="flag doado">Doado</div>
         )}
 

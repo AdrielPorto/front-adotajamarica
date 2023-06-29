@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -8,6 +8,10 @@ export const Container = styled.div`
     margin: 0 auto;
     margin-top: 90px;
     margin-bottom: 30px;
+    ${breakAt(BreakpointSize.sm)} {
+      width: 100%;
+      padding: 0 5%;
+    }
 
     h1 {
       margin-bottom: 20px;
@@ -46,6 +50,28 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         gap: 8px;
+
+        ${breakAt(BreakpointSize.sm)} {
+          display: none;
+        }
+
+        &_mobile {
+          display: none;
+          ${breakAt(BreakpointSize.sm)} {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.3rem;
+            font-weight: bold;
+            span {
+              font-size: 1.3rem;
+              color: ${({ theme }) => theme.COLORS.BLUE};
+              cursor: pointer;
+              font-weight: 500;
+              margin-top: 4px;
+            }
+          }
+        }
+
         div {
           font-size: 1.3rem;
           display: flex;

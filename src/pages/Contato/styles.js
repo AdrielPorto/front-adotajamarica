@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
@@ -10,6 +11,9 @@ export const Container = styled.div`
       padding: 80px 5%;
       position: relative;
       background-color: ${({ theme }) => theme.COLORS.ORANGE};
+      ${breakAt(BreakpointSize.sm)} {
+        padding: 40px 5%;
+      }
 
       .container {
         width: min(100%, 1140px);
@@ -19,9 +23,13 @@ export const Container = styled.div`
         h1 {
           font-size: 4.8rem;
           font-weight: 800;
-
           color: ${({ theme }) => theme.COLORS.WHITE};
           margin-bottom: 20px;
+
+          ${breakAt(BreakpointSize.sm)} {
+            font-size: 3.3rem;
+            margin-bottom: 10px;
+          }
         }
 
         p {
@@ -29,6 +37,10 @@ export const Container = styled.div`
           font-weight: 400;
 
           color: ${({ theme }) => theme.COLORS.WHITE};
+
+          ${breakAt(BreakpointSize.sm)} {
+            font-size: 1.6rem;
+          }
         }
       }
     }
@@ -40,12 +52,24 @@ export const SectionContact = styled.section`
   padding: 80px 5%;
   border-top: 2px solid ${({ theme }) => theme.COLORS.BLACK_LIGHT};
 
+  ${breakAt(BreakpointSize.sm)} {
+    padding: 40px 5%;
+  }
+
   .container {
     width: min(100%, 1140px);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     gap: 100px;
+
+    ${breakAt(BreakpointSize.lg)} {
+      gap: 25px;
+    }
+
+    ${breakAt(BreakpointSize.md)} {
+      flex-direction: column;
+    }
 
     .content {
       display: flex;
@@ -54,6 +78,11 @@ export const SectionContact = styled.section`
       margin-top: 40px;
       flex: 1;
 
+      ${breakAt(BreakpointSize.sm)} {
+        margin-top: 0px;
+        gap: 0px;
+      }
+
       a {
         display: flex;
         align-items: center;
@@ -61,6 +90,15 @@ export const SectionContact = styled.section`
         color: ${({ theme }) => theme.COLORS.BLACK_LIGHT};
         font-size: 2.4rem;
         transition: all 0.3s ease-in-out;
+
+        ${breakAt(BreakpointSize.sm)} {
+          font-size: 1.8rem;
+          gap: 5px;
+
+          svg {
+            width: 25px;
+          }
+        }
 
         &:hover {
           transform: scale(1.05);
@@ -74,7 +112,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   flex: 1;
 
   .form-group {

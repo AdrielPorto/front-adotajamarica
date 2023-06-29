@@ -42,7 +42,6 @@ const Esquecido = () => {
 
     onSubmit: (values) => {
       setLoading(true);
-      console.log(values);
 
       api
         .post(`/users/recovery`, values)
@@ -58,7 +57,6 @@ const Esquecido = () => {
             )
             .then(
               (res) => {
-                console.log(res);
                 toast("E-mail enviado com sucesso!", {
                   type: "success",
                   autoClose: 3000,

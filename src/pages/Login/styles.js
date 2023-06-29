@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
@@ -11,6 +12,11 @@ export const Container = styled.div`
       width: 425px;
       margin: 0 auto;
       text-align: center;
+
+      ${breakAt(BreakpointSize.sm)} {
+        width: 100%;
+        padding: 0 5%;
+      }
       h1 {
         margin-bottom: 20px;
       }

@@ -19,9 +19,9 @@ export const Container = styled.div`
   }
 `;
 
-export const SectionFavorites = styled.section`
+export const SectionInteressados = styled.section`
   .box {
-    margin-top: 32px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -48,13 +48,6 @@ export const SectionFavorites = styled.section`
 
       p {
         font-size: 1.4rem;
-      }
-    }
-
-    div.card-header {
-      img {
-        height: 200px;
-        object-fit: cover;
       }
     }
   }

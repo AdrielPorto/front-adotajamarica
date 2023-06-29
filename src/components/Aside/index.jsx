@@ -10,6 +10,7 @@ import {
 import { TiHeartFullOutline } from "react-icons/ti";
 import { ImExit } from "react-icons/im";
 import { HiPlus } from "react-icons/hi";
+import { IoLogoOctocat } from "react-icons/io5";
 
 import { Container, NavAside } from "./styles";
 
@@ -52,6 +53,19 @@ const Aside = ({ atualiza }) => {
               <TiHeartFullOutline />
             </span>
             Meus favoritos
+          </NavLink>
+          <NavLink
+            to="/meus-interesses"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+            data-option="meus-interesses"
+            onClick={topPage}
+          >
+            <span className="circle-color_yellow">
+              <IoLogoOctocat />
+            </span>
+            Meus interesses
           </NavLink>
           <NavLink
             to="/interessados"

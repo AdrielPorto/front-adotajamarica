@@ -20,6 +20,7 @@ import UpdatePet from "../pages/UpdatePet";
 import Favoritos from "../pages/Favoritos";
 import Interessados from "../pages/Interessados";
 import MeusPets from "../pages/MeusPets";
+import MeusInteresses from "../pages/MeusInteresses";
 
 const AppRoutes = () => {
   const { user } = useAuth();
@@ -46,6 +47,11 @@ const AppRoutes = () => {
       <Route
         path="/interessados"
         element={user ? <Interessados /> : <Login />}
+      />
+
+      <Route
+        path="/meus-interesses"
+        element={user ? <MeusInteresses /> : <Login />}
       />
       <Route path="/pets" element={user ? <MeusPets /> : <Login />} />
     </Routes>

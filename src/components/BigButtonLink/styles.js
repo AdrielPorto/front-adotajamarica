@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export const BigButton = styled(Link)`
   border-radius: 5px;
   box-shadow: 3px 3px 0 #000;
@@ -17,6 +18,11 @@ export const BigButton = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: 16px;
+
+  ${breakAt(BreakpointSize.sm)} {
+    width: 100% !important;
+    font-size: 2rem;
+  }
 
   &:active {
     box-shadow: 1px 1px 0 #000;

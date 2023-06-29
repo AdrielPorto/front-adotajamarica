@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -12,8 +12,17 @@ export const Container = styled.div`
     display: grid;
     place-content: center;
 
+    ${breakAt(BreakpointSize.sm)} {
+      margin: 0;
+    }
+
     .content {
       width: 425px;
+
+      ${breakAt(BreakpointSize.sm)} {
+        width: 100vw;
+        padding: 0 5%;
+      }
 
       .backLink {
         margin-top: 18px;

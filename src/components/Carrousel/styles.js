@@ -1,14 +1,32 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const CarrouselContainer = styled.div`
   width: 100%;
-
+  .slick-track {
+    margin: auto;
+  }
   .slick-slide {
     width: 250px;
+
+    ${breakAt(BreakpointSize.sm)} {
+      width: auto;
+      & > div {
+        display: grid;
+        place-items: center;
+        width: 90%;
+        margin: auto;
+        padding: 0px;
+      }
+    }
     .item-logo {
       img {
         border-radius: 5px;
         border: 2px solid ${({ theme }) => theme.COLORS.BLACK_LIGHT};
+
+        ${breakAt(BreakpointSize.sm)} {
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -37,6 +55,10 @@ export const CarrouselContainer = styled.div`
   }
   .slick-dots {
     bottom: -16%;
+
+    ${breakAt(BreakpointSize.sm)} {
+      bottom: -50px;
+    }
     li {
       width: fit-content;
       margin: 0 4px;

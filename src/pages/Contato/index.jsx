@@ -178,13 +178,13 @@ const Contato = () => {
             </Form>
 
             <div className="content">
-              <a href="tel:(21)%97130-8474">
+              <a href="tel:(21)%98086-0707">
                 <BsFillTelephoneFill color={COLORS.BLUE} size={40} />
-                (21) 97130-8474
+                (21) 98086-0707
               </a>
-              <a href="https://api.whatsapp.com/send?phone=21971308474">
+              <a href="https://api.whatsapp.com/send?phone=21980860707">
                 <IoLogoWhatsapp color="#22c55e" size={40} />
-                (21) 97130-8474
+                (21) 98086-0707
               </a>
 
               <a href="mailto:adotajamarica@gmail.com">

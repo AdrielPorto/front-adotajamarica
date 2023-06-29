@@ -33,7 +33,7 @@ export const NavAside = styled.nav`
   .nav-itens {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     position: relative;
 
     .nav-item {
@@ -80,6 +80,9 @@ export const NavAside = styled.nav`
       span.circle-color_orange {
         background-color: ${({ theme }) => theme.COLORS.ORANGE};
       }
+      span.circle-color_yellow {
+        background-color: #04b4e2;
+      }
       span.circle-color_white {
         background-color: #69cf95;
       }
@@ -101,26 +104,30 @@ export const NavAside = styled.nav`
 
     .nav-item.nav-item[data-option="favoritos"].active:nth-child(2)
       ~ .markLink {
-      top: 21%;
+      top: 17%;
     }
 
-    .nav-item.nav-item[data-option="interessados"].active:nth-child(3)
+    .nav-item.nav-item[data-option="meus-interesses"].active:nth-child(3)
       ~ .markLink {
-      top: 42%;
+      top: 34%;
     }
-
-    .nav-item.nav-item[data-option="meus-pets"].active:nth-child(4)
+    .nav-item.nav-item[data-option="interessados"].active:nth-child(4)
       ~ .markLink {
-      top: 63%;
+      top: 51%;
     }
 
-    .nav-item[data-option="meus-dados"].active:nth-child(5) ~ .markLink {
+    .nav-item.nav-item[data-option="meus-pets"].active:nth-child(5)
+      ~ .markLink {
+      top: 68%;
+    }
+
+    .nav-item[data-option="meus-dados"].active:nth-child(6) ~ .markLink {
       @keyframes identifier {
         0% {
-          transform: rotate(90deg) translate(516%);
+          transform: rotate(90deg) translate(570%);
         }
         100% {
-          transform: rotate(90deg) translate(516%);
+          transform: rotate(90deg) translate(570%);
         }
       }
 
@@ -153,7 +160,7 @@ export const NavAside = styled.nav`
 
     transition: all 0.2s ease-in-out;
 
-    margin-top: 25px;
+    margin-top: 10px;
     margin-left: 25px;
     margin-right: 25px;
 

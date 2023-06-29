@@ -525,6 +525,7 @@ const UpdatePet = () => {
                           size={20}
                           className="delete-photo"
                           type="button"
+                          onClick={() => handlePhotoDelete(0)}
                         />
                       </>
                     ) : (
@@ -550,6 +551,7 @@ const UpdatePet = () => {
                           size={20}
                           className="delete-photo"
                           type="button"
+                          onClick={() => handlePhotoDelete(1)}
                         />
                       </>
                     ) : (

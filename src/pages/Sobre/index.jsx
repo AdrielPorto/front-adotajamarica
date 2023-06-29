@@ -53,7 +53,7 @@ const Sobre = () => {
         <SectionSobre>
           <div className="container">
             <div className="content">
-              <h2>NOSSA VISÃO</h2>
+              <h2 className="our_vision">NOSSA VISÃO</h2>
               <p>
                 Nossa visão é criar um mundo onde todos os pets encontrem um lar
                 amoroso e responsável. Desejamos ser a plataforma de referência

@@ -464,6 +464,47 @@ const Registrar = () => {
             <input type="checkbox" name="termos" id="termos" required />
           </div>
 
+          <div className="form-group-termos_mobile">
+            <div htmlFor="termos">
+              <input type="checkbox" name="termos" id="termos" required /> Eu li
+              e concordo com os:{" "}
+            </div>
+            <CustomModal
+              openerElement={
+                <span>Termos de Uso e Política de Privacidade</span>
+              }
+              title="Termos de Uso"
+            >
+              <p>
+                Eu declaro que aceito e concordo com os termos e condições do
+                sistema de adoção de cachorros abandonados, e autorizo a coleta,
+                armazenamento, uso e compartilhamento dos meus dados pessoais
+                pela <strong>AdotaJáMaricá</strong>, em conformidade com as
+                disposições da{" "}
+                <a
+                  target="_blank"
+                  href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+                >
+                  Lei Geral de Proteção de Dados (LGPD) 13.709/2018
+                </a>{" "}
+                do Brasil.
+              </p>
+              <p>
+                Declaro também que fui informado(a) sobre meus direitos de
+                acesso, correção, exclusão, anonimização e portabilidade dos
+                meus dados pessoais, bem como sobre as responsabilidades da{" "}
+                <strong>AdotaJáMaricá</strong> em relação à segurança dos meus
+                dados pessoais.
+              </p>
+              <p>
+                Este termo de aceitação entra em vigor a partir da data de minha
+                adesão ao sistema de adoção de cachorros abandonados, e
+                permanece válido até a revogação expressa por minha parte, nos
+                termos da <strong>LGPD</strong>.
+              </p>
+            </CustomModal>
+          </div>
+
           <BigButton
             className="button-authenticate"
             type="submit"

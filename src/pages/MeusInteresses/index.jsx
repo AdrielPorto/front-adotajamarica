@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
 import { Container, SectionInteressados } from "./styles";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -12,7 +13,8 @@ import Loading from "../../components/Loading";
 
 import notFound from "../../assets/images/petNotFound.png";
 
-const Interessados = () => {
+const MeusInteresses = () => {
+  const { user } = useAuth();
   const [interessados, setInteressados] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,45 +42,12 @@ const Interessados = () => {
     }
   };
 
-  const handleConfirm = async (usuarios_interessados_id) => {
-    try {
-      setLoading(true);
-      const data = {
-        usuarios_interessados_id,
-      };
-
-      await api.patch(`/interestedUsers`, data);
-      toast("Doação confirmada com sucesso", {
-        type: "success",
-        autoClose: 3000,
-        hideProgressBar: true,
-      });
-
-      api
-        .get("/interestedUsers")
-        .then((response) => {
-          setInteressados(response.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (err) {
-      console.log(err);
-      toast("Erro ao confirmar doação", {
-        type: "error",
-        autoClose: 3000,
-        hideProgressBar: true,
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     const timer = setTimeout(() => {
       const getInteressados = async () => {
         try {
-          const { data } = await api.get("/interestedUsers");
+          const { data } = await api.get("/interestedUsers/showInteresses");
+
           setInteressados(data);
         } catch (err) {
           console.log(err);
@@ -100,31 +69,29 @@ const Interessados = () => {
           <Aside />
           <SectionInteressados>
             <div className="area-box">
-              <h2>Interessados em adotar</h2>
+              <h2>Meus interesses</h2>
               {interessados && interessados.length > 0 ? (
                 <div className="box">
                   {interessados.map((interessado, index) => (
                     <CardInteressados
                       interessado={interessado}
                       handleDelete={handleDelete}
-                      handleConfirm={handleConfirm}
                       key={index}
-                      isConfirmed={true}
-                      title={"Recusar adoção"}
+                      donopet={true}
+                      isConfirmed={false}
+                      isTextInteressado={true}
+                      title={"Abadonar pet"}
                     />
                   ))}
                 </div>
               ) : (
                 <div className="box">
-                  <div className="card-notFind">
+                  <Link to="/encontrar-pets" className="card-notFind">
                     <img src={notFound} alt="Nenhum pet encontrado" />
-                    <h3>Não há interessados no momento</h3>
+                    <h3>Nenhum pet encontrado</h3>
 
-                    <p>
-                      Quando houver interessados, eles aparecerão aqui. Fique de
-                      olho!
-                    </p>
-                  </div>
+                    <p>Explore a plataforma e encontre o pet ideal para você</p>
+                  </Link>
                 </div>
               )}
             </div>
@@ -141,4 +108,4 @@ const Interessados = () => {
   );
 };
 
-export default Interessados;
+export default MeusInteresses;

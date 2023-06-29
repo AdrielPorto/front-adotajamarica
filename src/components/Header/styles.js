@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const HeaderContainer = styled.header`
   grid-area: header;
@@ -29,6 +30,26 @@ export const HeaderContainer = styled.header`
     z-index: 999;
     position: fixed;
   }
+
+  .button-menu {
+    background: ${({ theme }) => theme.COLORS.WHITE};
+    height: 40px;
+    width: 100px;
+
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.COLORS.BLUE};
+    font-size: 1.6rem;
+    font-weight: 600;
+    gap: 5px;
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+
+    display: none;
+
+    @media screen and (max-width: 944px) {
+      display: flex;
+    }
+  }
 `;
 
 export const HeaderContet = styled.div`
@@ -47,10 +68,26 @@ export const HeaderLogo = styled(Link)`
   > img {
     width: 150px;
     height: auto;
+
+    ${breakAt(BreakpointSize.sm)} {
+      display: none;
+    }
+
+    &.mobile-logo {
+      display: none;
+      ${breakAt(BreakpointSize.sm)} {
+        display: block;
+        width: auto;
+      }
+    }
   }
 `;
 
 export const HeaderMenu = styled.ul`
+  @media screen and (max-width: 944px) {
+    background-color: red;
+    display: none;
+  }
   > ul {
     display: flex;
     align-items: center;
@@ -103,10 +140,14 @@ export const AuthLinks = styled.div`
       font-weight: 600;
     }
 
+    @media screen and (max-width: 944px) {
+      display: none;
+    }
+
     &:first-child {
       background-color: ${({ theme }) => theme.COLORS.WHITE};
       color: ${({ theme }) => theme.COLORS.BLUE};
-
+      display: flex;
       transition: all 0.2s ease-in-out;
 
       &:hover {
@@ -119,16 +160,28 @@ export const AuthLinks = styled.div`
       }
     }
   }
+
+  &.container_auth--component {
+    width: 100%;
+    a {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
 
 export const UserAuthentication = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 100%;
-
   position: relative;
+
+  ${breakAt(BreakpointSize.md)} {
+    display: none;
+  }
 
   .avatarMenuMain {
     width: 40px;
@@ -146,6 +199,27 @@ export const UserAuthentication = styled.div`
     svg {
       font-size: 4rem;
       fill: ${({ theme }) => theme.COLORS.BLUE};
+    }
+  }
+`;
+
+export const UserAuthenticationMobile = styled.div`
+  display: none;
+
+  ${breakAt(BreakpointSize.md)} {
+    display: flex;
+  }
+
+  .conta_avatar {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
 `;
@@ -204,6 +278,54 @@ export const UserMenu = styled.div`
       &:hover {
         background-color: ${({ theme }) => theme.COLORS.RED};
         color: ${({ theme }) => theme.COLORS.WHITE};
+      }
+    }
+  }
+
+  &.user-menu__mobile {
+    position: static;
+    padding: 0;
+    margin-top: 0.75rem;
+
+    .user-menu__item {
+      border: none;
+      box-shadow: none;
+
+      p {
+        padding: 0 0.75rem;
+        span {
+          font-size: 1.8rem;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+
+      > a {
+        padding: 0 0.75rem;
+        height: 50px;
+        font-size: 1.6rem;
+
+        > span {
+          height: 30px;
+          width: 30px;
+        }
+      }
+
+      .buttonExit {
+        width: 120px;
+        height: 40px;
+        background-color: ${({ theme }) => theme.COLORS.RED};
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        border: none;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        margin-left: 0.75rem;
+        margin-top: 1rem;
+
+        justify-content: center;
       }
     }
   }
@@ -282,7 +404,115 @@ export const UserMenuLink = styled(Link)`
   span.circle-color_orange {
     background-color: ${({ theme }) => theme.COLORS.ORANGE};
   }
+  span.circle-color_yellow {
+    background-color: #04b4e2;
+  }
   span.circle-color_white {
     background-color: #69cf95;
+  }
+`;
+
+export const OverlayMenu = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1000;
+  cursor: pointer;
+  visibility: hidden;
+
+  &.overlay-menu__active {
+    visibility: visible;
+  }
+`;
+
+export const MenuMobile = styled.div`
+  height: 102vh;
+  min-width: 2.75rem;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  outline: none;
+  overflow: hidden auto;
+  will-change: transform;
+
+  width: min(100%, 425px);
+
+  cursor: default;
+
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 1002;
+
+  transition: all 0.2s ease-in-out;
+
+  &.menu-mobile__active {
+    left: 0;
+  }
+
+  .buttonClose {
+    display: flex;
+    width: 100%;
+    border: 0;
+    background-color: ${({ theme }) => theme.COLORS.WHITE};
+    height: 50px;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.COLORS.RED};
+    padding: 0 0.75rem;
+  }
+
+  .container_auth {
+    background-color: ${({ theme }) => theme.COLORS.WHITE_LIGHT};
+    padding: 0 0.75rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nave_mobile {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      width: 100%;
+
+      height: 50px;
+      border-bottom: 1px solid rgba(236, 236, 236);
+      a {
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+        padding: 0 0.75rem;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: #3873ed;
+
+        &.active {
+          background-color: #e9effd;
+        }
+      }
+    }
+  }
+`;
+
+export const ContainerAuth = styled.div`
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  position: fixed;
+  top: 78px;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+
+  display: none;
+
+  &.container_auth--active {
+    display: block;
   }
 `;

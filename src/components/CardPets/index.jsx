@@ -43,7 +43,6 @@ const CardPets = ({
     setDisabled(true);
     if (user) {
       if (usuario_id === user.id) {
-        console.log("Você não pode favoritar seu próprio pet");
         toast("Você não pode favoritar seu próprio pet", {
           type: "warning",
           autoClose: 3000,

@@ -30,6 +30,9 @@ const { COLORS } = theme;
 
 import item1 from "../../assets/images/slide-1.png";
 import item2 from "../../assets/images/slide-2.png";
+import item3 from "../../assets/images/slide-3.png";
+import item4 from "../../assets/images/slide-4.png";
+import item5 from "../../assets/images/slide-5.png";
 
 const Home = () => {
   const { user } = useAuth();
@@ -59,12 +62,24 @@ const Home = () => {
     <HomeContainer>
       <Header />
       <main>
-        <Slider segPlay={5000}>
+        <Slider segPlay={3000} classN="slider_desktop">
           <SliderItem>
             <img src={item1} alt="item1" />
           </SliderItem>
           <SliderItem>
             <img src={item2} alt="item2" />
+          </SliderItem>
+        </Slider>
+
+        <Slider segPlay={3000} classN="slider_mobile">
+          <SliderItem>
+            <img src={item3} alt="item3" />
+          </SliderItem>
+          <SliderItem>
+            <img src={item4} alt="item4" />
+          </SliderItem>
+          <SliderItem>
+            <img src={item5} alt="item5" />
           </SliderItem>
         </Slider>
 

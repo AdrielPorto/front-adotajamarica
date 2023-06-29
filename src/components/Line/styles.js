@@ -1,6 +1,9 @@
 import styled from "styled-components";
-
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 export const LineSvg = styled.div`
+  ${breakAt(BreakpointSize.sm)} {
+    display: none;
+  }
   svg {
     position: absolute;
     display: block;

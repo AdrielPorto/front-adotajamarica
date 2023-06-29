@@ -12,6 +12,7 @@ import Footer from "../../components/Footer";
 import Aside from "../../components/Aside";
 import CardPets from "../../components/CardPets";
 import Loading from "../../components/Loading";
+import notFound from "../../assets/images/petNotFound.png";
 
 const Favoritos = () => {
   const [loading, setLoading] = useState(true);
@@ -132,8 +133,11 @@ const Favoritos = () => {
                     />
                   ))
                 ) : (
-                  <Link to="/encontrar-pets" className="empty">
-                    Explore o animal de estimação da sua escolha.
+                  <Link to="/encontrar-pets" className="card-notFind">
+                    <img src={notFound} alt="Nenhum pet encontrado" />
+                    <h3>Nenhum pet encontrado</h3>
+
+                    <p>Explore a plataforma e encontre o pet ideal para você</p>
                   </Link>
                 )}
               </div>
