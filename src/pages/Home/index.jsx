@@ -17,7 +17,6 @@ import { BigButtonLink } from "../../components/BigButtonLink";
 import AdocaoContainer from "../../components/AdocaoContainer";
 import Carrousel from "../../components/Carrousel";
 import Loading from "../../components/Loading";
-import manifest from './manifest.json';
 
 import {
   HomeContainer,
@@ -58,7 +57,6 @@ const Home = () => {
   if (isLoading) {
     return <Loading />;
   }
-  const appName = manifest.short_name;
 
   return (
     <HomeContainer>

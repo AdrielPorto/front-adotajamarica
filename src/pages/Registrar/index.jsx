@@ -41,6 +41,7 @@ const Registrar = () => {
   const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
   const [overlay, setOverlay] = useState(false);
   const { signIn, signInGoogle } = useAuth();
+  const [isMobile, setIsMobile] = useState(true);
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
@@ -198,7 +199,22 @@ const Registrar = () => {
         });
     },
   });
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.matchMedia("(max-width: 576px)").matches);
+    };
 
+    // Verifica o tamanho da tela quando o componente é montado
+    handleResize();
+
+    // Registra um ouvinte para o evento de redimensionamento da janela
+    window.addEventListener("resize", handleResize);
+
+    // Remove o ouvinte quando o componente é desmontado
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <Container>
       <Header />
@@ -461,13 +477,25 @@ const Registrar = () => {
                 </p>
               </CustomModal>
             </div>
-            <input type="checkbox" name="termos" id="termos" required />
+            <input
+              type="checkbox"
+              name="termos"
+              id="termos"
+              required
+              disabled={isMobile}
+            />
           </div>
 
           <div className="form-group-termos_mobile">
-            <div htmlFor="termos">
-              <input type="checkbox" name="termos" id="termos" required /> Eu li
-              e concordo com os:{" "}
+            <div htmlFor="termos_mobile">
+              <input
+                type="checkbox"
+                name="termos_mobile"
+                id="termos_mobile"
+                required
+                disabled={!isMobile}
+              />{" "}
+              Eu li e concordo com os:{" "}
             </div>
             <CustomModal
               openerElement={

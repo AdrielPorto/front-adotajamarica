@@ -508,10 +508,12 @@ export const ContainerAuth = styled.div`
   left: 0;
   width: 100vw;
   height: 100%;
+  right: -100%;
 
-  display: none;
+  visibility: hidden;
 
   &.container_auth--active {
-    display: block;
+    visibility: visible;
+    right: 0;
   }
 `;

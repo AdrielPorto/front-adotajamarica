@@ -304,7 +304,12 @@ export const Header = () => {
                   )}
                   {user.nome}
                 </span>
-                <Link to="/meus-dados">
+                <Link
+                  to="/meus-dados"
+                  onClick={() => {
+                    setShowAuth(false);
+                  }}
+                >
                   <BsFillGearFill size={25} />
                 </Link>
               </UserMenuHeader>
