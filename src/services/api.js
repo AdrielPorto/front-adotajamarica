@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://adotajamarica-94dd2d31c529.herokuapp.com",
+  baseURL: "http://localhost:3333",
 });
 
 export const apiCep = axios.create({

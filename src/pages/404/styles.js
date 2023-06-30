@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
@@ -21,13 +22,25 @@ export const SectionNotFound = styled.section`
     display: flex;
     align-items: center;
     gap: 6px;
+    ${breakAt(BreakpointSize.sm)} {
+      justify-content: center;
+      margin-bottom: 16px;
+    }
     img {
       width: 100%;
       height: 100%;
+
+      ${breakAt(BreakpointSize.sm)} {
+        width: 150px;
+        height: auto;
+      }
     }
   }
   h1 {
     font-size: 12rem;
+    ${breakAt(BreakpointSize.sm)} {
+      font-size: 6rem;
+    }
   }
   .subtitle {
     color: ${({ theme }) => theme.COLORS.BLACK_LIGHT};
