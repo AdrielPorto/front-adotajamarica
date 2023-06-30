@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
@@ -13,6 +14,26 @@ export const Container = styled.div`
       display: grid;
       grid-template-columns: 1fr 3fr;
       gap: 20px;
+
+      @media screen and (max-width: 944px) {
+        grid-template-columns: 1fr;
+      }
+
+      ${breakAt(BreakpointSize.sm)} {
+        display: flex;
+        flex-direction: column;
+
+        select {
+          height: 50px;
+        }
+        textarea {
+          height: 150px;
+        }
+
+        .btn-salvar {
+          width: 100%;
+        }
+      }
     }
     h3 {
       margin-bottom: 8px;
@@ -40,6 +61,10 @@ export const Container = styled.div`
     .flex-group {
       display: flex;
       gap: 30px;
+      ${breakAt(BreakpointSize.sm)} {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   }
 `;
@@ -59,11 +84,19 @@ export const SectionRegister = styled.section`
           margin: 0;
           font-size: 1.4rem;
           color: ${({ theme }) => theme.COLORS.BLACK_LIGHT};
+
+          ${breakAt(BreakpointSize.sm)} {
+            font-size: 1.2rem;
+          }
         }
       }
 
       .btn-salvar {
         width: 250px;
+
+        ${breakAt(BreakpointSize.sm)} {
+          width: 100%;
+        }
 
         &.disabled {
           opacity: 0.5;
@@ -107,6 +140,10 @@ export const ContainerAvatar = styled.div`
     align-items: center;
     gap: 20px;
 
+    ${breakAt(BreakpointSize.sm)} {
+      gap: 10px;
+    }
+
     .avatar {
       width: 100px;
       height: 100px;
@@ -117,6 +154,11 @@ export const ContainerAvatar = styled.div`
 
       color: ${({ theme }) => theme.COLORS.BLUE};
       position: relative;
+
+      ${breakAt(BreakpointSize.sm)} {
+        object-fit: cover;
+        height: 75px;
+      }
 
       img {
         width: 100%;
@@ -143,10 +185,19 @@ export const ContainerAvatar = styled.div`
 export const ContainerInfo = styled.div`
   .flex-group {
     margin-bottom: 30px;
+
+    ${breakAt(BreakpointSize.sm)} {
+      margin-bottom: 15px;
+    }
   }
   .form-group {
     height: 50px;
     flex: 1;
+
+    ${breakAt(BreakpointSize.sm)} {
+      flex: none;
+      height: 70px;
+    }
 
     div {
       > input {
@@ -161,10 +212,19 @@ export const ContainerInfo = styled.div`
 export const ContainerCategory = styled.div`
   .flex-group {
     margin-bottom: 30px;
+
+    ${breakAt(BreakpointSize.sm)} {
+      margin-bottom: 15px;
+    }
   }
   .form-group {
     height: 50px;
     flex: 1;
+
+    ${breakAt(BreakpointSize.sm)} {
+      flex: none;
+      height: 70px;
+    }
   }
   .margin-input {
     label {
@@ -182,14 +242,25 @@ export const Address = styled.div`
     gap: 5px;
     label {
       margin: 0 !important;
+      ${breakAt(BreakpointSize.sm)} {
+        font-size: 1.2rem;
+      }
     }
   }
   .group-address {
     display: flex;
     gap: 20px;
 
-    .form-group.form-group_disabled {
-      width: 50%;
+    ${breakAt(BreakpointSize.sm)} {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .form-group.form-group_disabled {
+    width: 50%;
+    ${breakAt(BreakpointSize.sm)} {
+      width: 100%;
     }
   }
 `;

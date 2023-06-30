@@ -17,7 +17,7 @@ export const Container = styled.div`
       justify-content: space-between;
       gap: 35px;
 
-      @media screen and (max-width: 930px) {
+      @media screen and (max-width: 1030px) {
         flex-direction: column;
         gap: 150px;
       }

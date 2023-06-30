@@ -150,6 +150,12 @@ export default createGlobalStyle`
         0 0 0 1px rgba(10, 10, 10, 0.02);
       margin-bottom: 25px;
 
+      ${breakAt(BreakpointSize.sm)} {
+        
+        padding: 10px 15px;
+      }
+
+
       label {
         font-size: 1.6rem;
         color: ${({ theme }) => theme.COLORS.BLACK_LIGHT};

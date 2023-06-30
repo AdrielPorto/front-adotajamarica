@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
+
   > main {
     padding: 20px 5%;
     .container {
@@ -11,10 +13,18 @@ export const Container = styled.div`
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 3fr;
-
       gap: 20px;
-
       position: relative;
+      @media screen and (max-width: 944px) {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        ${breakAt(BreakpointSize.sm)} {
+          margin: 0px 15px;
+          text-align: center;
+        }
+      }
     }
   }
 `;
@@ -25,6 +35,16 @@ export const SectionFavorites = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
+    ${breakAt(BreakpointSize.lg)} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    ${breakAt(BreakpointSize.sm)} {
+      grid-template-columns: 1fr;
+      margin: 0px 15px;
+      margin-top: 20px;
+    }
 
     .card-notFind {
       display: flex;

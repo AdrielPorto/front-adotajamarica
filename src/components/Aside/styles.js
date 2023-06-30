@@ -24,6 +24,10 @@ export const Container = styled.aside`
     margin: 0 25px;
     margin-bottom: 13px;
   }
+
+  @media screen and (max-width: 944px) {
+    display: none;
+  }
 `;
 
 export const NavAside = styled.nav`
