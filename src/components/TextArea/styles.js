@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.textarea`
   width: 100%;

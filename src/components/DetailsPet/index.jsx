@@ -296,7 +296,7 @@ const DetailsPet = ({ detailsPets, isInterested, setIsInterested }) => {
           )}
           <BoxMoreInfo>
             <img src={certificatePet} />
-            <small> {detailsPets?.raca}</small>
+            {detailsPets?.raca}
           </BoxMoreInfo>
         </div>
       </div>
@@ -353,7 +353,6 @@ const DetailsPet = ({ detailsPets, isInterested, setIsInterested }) => {
               color="#fff"
               onClick={onAdopt}
               disabled={isLoaded}
-              className="buttonAdopt"
             >
               {isLoaded ? (
                 <CgSpinner className="spinner" size={40} />

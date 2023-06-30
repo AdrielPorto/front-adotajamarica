@@ -1,20 +1,9 @@
 import styled from "styled-components";
-import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
+
 export const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-
-  ${breakAt(BreakpointSize.sm)} {
-    margin-top: -10px;
-  }
-
-  .buttonAdopt {
-    ${breakAt(BreakpointSize.sm)} {
-      padding: 14px;
-      font-size: 2rem;
-    }
-  }
   > a {
   }
   h1 {
@@ -90,10 +79,6 @@ export const Container = styled.div`
     > div {
       display: flex;
       gap: 10px;
-
-      ${breakAt(BreakpointSize.sm)} {
-        overflow-x: scroll;
-      }
     }
   }
   .address {
@@ -116,7 +101,6 @@ export const Container = styled.div`
     border: 2px solid ${({ theme }) => theme.COLORS.BLUE};
     padding: 5px 10px;
     height: 50px;
-
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
       0 0 0 1px rgba(10, 10, 10, 0.02);
 
@@ -153,21 +137,9 @@ export const BoxMoreInfo = styled.span`
   min-width: 85px;
   height: 80px;
   font-size: 1.2rem;
-  text-align: center;
-
-  ${breakAt(BreakpointSize.sm)} {
-    gap: 5px;
-    font-size: 1rem;
-    height: 70px;
-  }
   > img {
     width: 32px;
     height: 32px;
-
-    ${breakAt(BreakpointSize.sm)} {
-      width: 25px;
-      height: 25px;
-    }
   }
 `;
 
@@ -194,7 +166,7 @@ export const DetailsUser = styled.div`
           width: 100%;
           height: 100%;
           border-radius: 50%;
-          object-fit: cover;
+          object-fit: fill;
         }
       }
     }

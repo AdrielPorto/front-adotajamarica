@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BreakpointSize, breakAt } from "../../assets/styles/responsive";
 
 export const Container = styled.div`
   width: 100%;
@@ -48,10 +47,6 @@ export const SectionUser = styled.section`
       color: #4a4a4a;
       text-align: center;
       margin: 20px 0;
-      ${breakAt(BreakpointSize.sm)} {
-        font-size: 1.6rem;
-        margin: 20px;
-      }
     }
     .meta {
       .meta_item {
@@ -76,12 +71,5 @@ export const SectionUserPets = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-
-    ${breakAt(BreakpointSize.md)} {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    ${breakAt(BreakpointSize.sm)} {
-      grid-template-columns: 1fr;
-    }
   }
 `;

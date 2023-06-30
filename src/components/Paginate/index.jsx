@@ -20,14 +20,7 @@ const Paginate = ({
         pageCount={pageNumbers.length}
         previousLabel={<TiArrowLeftOutline size={20} />}
         nextLabel={<TiArrowRightOutline size={20} />}
-        onPageChange={(e) => {
-          setCurrentPage(e.selected + 1);
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
+        onPageChange={(e) => setCurrentPage(e.selected + 1)}
         containerClassName={"paginationBttns"}
         previousLinkClassName={"previousBttn"}
         nextLinkClassName={"nextBttn"}

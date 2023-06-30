@@ -85,6 +85,7 @@ export const HeaderLogo = styled(Link)`
 
 export const HeaderMenu = styled.ul`
   @media screen and (max-width: 944px) {
+    background-color: red;
     display: none;
   }
   > ul {

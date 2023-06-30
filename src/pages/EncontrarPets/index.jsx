@@ -10,12 +10,9 @@ import {
   Content,
   Filterbar,
   ListsPets,
-  OverlayMobile,
-  FilterMobile,
 } from "./styles";
 
 import { BiSearch } from "react-icons/bi";
-import { HiOutlineFilter } from "react-icons/hi";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -36,8 +33,6 @@ const Valueoptions = [
 ];
 
 const EncontrarPets = () => {
-  const [showFilterMobile, setShowFilterMobile] = useState(false);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(9);
 
@@ -122,10 +117,6 @@ const EncontrarPets = () => {
     setSelectSearch(e.target.value);
   };
 
-  const handleFilterMobile = () => {
-    setShowFilterMobile(!showFilterMobile);
-  };
-
   return (
     <Container>
       <Header />
@@ -158,17 +149,6 @@ const EncontrarPets = () => {
                   onChange={HandleSelect}
                 />
               </div>
-
-              <button
-                className="btn-filter_mobile"
-                onClick={handleFilterMobile}
-              >
-                <span>
-                  {" "}
-                  <HiOutlineFilter />
-                </span>{" "}
-                Filtrar
-              </button>
             </div>
           </div>
 
@@ -235,34 +215,7 @@ const EncontrarPets = () => {
         />
       </main>
       <Footer />
-      <OverlayMobile
-        className={showFilterMobile ? "overlay-filter__active" : ""}
-        onClick={handleFilterMobile}
-      >
-        <FilterMobile className={showFilterMobile ? "filter__active" : ""}>
-          <Filterbar onClick={(e) => e.stopPropagation()}>
-            <Controls
-              setEspecie={setEspecie}
-              setGenero={setGenero}
-              setPorteFisico={setPorteFisico}
-              setFaixa_Etaria={setFaixa_Etaria}
-              setCaracteristica={setCaracteristica}
-              setInputSearch={setInputSearch}
-              setSelectSearch={setSelectSearch}
-              setResetar={setResetar}
-              setAplicar={setAplicar}
-              especie={especie}
-              genero={genero}
-              porteFisico={porteFisico}
-              faixa_etaria={faixa_etaria}
-              caracteristica={caracteristica}
-              resetar={resetar}
-              aplicar={aplicar}
-              handleFilterMobile={handleFilterMobile}
-            />
-          </Filterbar>
-        </FilterMobile>
-      </OverlayMobile>
+
       <ToastContainer />
     </Container>
   );

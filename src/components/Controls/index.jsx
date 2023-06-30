@@ -1,8 +1,7 @@
 import { useState, Fragment } from "react";
 
 import { BoxFilter } from "./styles";
-import { HiPlusSm, HiMinusSm, HiOutlineFilter } from "react-icons/hi";
-import { IoMdClose } from "react-icons/io";
+import { HiPlusSm, HiMinusSm } from "react-icons/hi";
 const Controls = ({
   setEspecie,
   setGenero,
@@ -20,7 +19,6 @@ const Controls = ({
   caracteristica,
   resetar,
   query,
-  handleFilterMobile,
 }) => {
   const [selectedOption, setSelectedOption] = useState("Aplicar");
   const [activeBoxes, setActiveBoxes] = useState([]);
@@ -128,15 +126,6 @@ const Controls = ({
             />
             Aplicar
           </label>
-        </div>
-
-        <div className="closed-filter">
-          <span>
-            <HiOutlineFilter /> Filtros
-          </span>
-          <button onClick={handleFilterMobile}>
-            <IoMdClose />
-          </button>
         </div>
       </BoxFilter>
 
@@ -373,7 +362,7 @@ const Controls = ({
         </div>
       </BoxFilter>
 
-      <BoxFilter className="borderTop borderBottom">
+      <BoxFilter className="borderTop">
         <div className="box-label">
           <button
             onClick={() => {
@@ -423,40 +412,6 @@ const Controls = ({
               Castrado
             </label>
           </div>
-        </div>
-      </BoxFilter>
-
-      <BoxFilter className="removeBd" color="rgba(35, 99, 236, 0.377)">
-        <div className="btn-group_mobile">
-          <label
-            htmlFor="Resetar"
-            className={selectedOption === "Resetar" ? "active" : ""}
-          >
-            <input
-              className="form-check-input"
-              type="radio"
-              id="Resetar"
-              name="controls"
-              value="Resetar"
-              onClick={handleOptionChange}
-            />
-            Resetar
-          </label>
-
-          <label
-            htmlFor="Aplicar"
-            className={selectedOption === "Aplicar" ? "active" : ""}
-          >
-            <input
-              className="form-check-input"
-              type="radio"
-              id="Aplicar"
-              name="controls"
-              value="Aplicar"
-              onClick={handleOptionChange}
-            />
-            Aplicar
-          </label>
         </div>
       </BoxFilter>
     </Fragment>
